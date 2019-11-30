@@ -97,7 +97,7 @@ class MailgunTransport extends AbstractApiTransport
         if (method_exists($email, 'getTemplate') && $email->getTemplate()) {
             $payload['template'] = $email->getTemplate();
         }
-        if (method_exists($email, 'getVariables') && $email->getVariables()) {
+        if (method_exists($email, 'getVariables') && trim($email->getVariables())) {
             $payload['h:X-Mailgun-Variables'] = $email->getVariables();
         }
         if ($html) {
